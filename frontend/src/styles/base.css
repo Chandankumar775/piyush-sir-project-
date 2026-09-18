@@ -1,0 +1,45 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: #04161a;
+  background-image:
+    radial-gradient(900px 620px at 50% -8%, rgba(18, 102, 110, 0.5), transparent 62%),
+    radial-gradient(700px 500px at 88% 96%, rgba(217, 180, 91, 0.12), transparent 60%);
+  background-attachment: fixed;
+  color: var(--bone);
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 400;
+  font-size: var(--t-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ---- browser surfaces wear the paint ---- */
+::selection { background: var(--gold); color: #241a02; }
+:root { accent-color: var(--gold); caret-color: var(--gold-lit); }
+
+:focus-visible {
+  outline: 2px solid var(--gold-lit);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+* { scrollbar-width: thin; scrollbar-color: rgba(217,180,91,0.45) transparent; }
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-thumb { background: rgba(217,180,91,0.45); border-radius: 3px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+
+/* numerals in anything that counts stay tabular */
+time, .tnum { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

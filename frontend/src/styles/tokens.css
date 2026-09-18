@@ -1,0 +1,48 @@
+:root {
+  /* ---- the ground: the client's teal broadcast scene ---- */
+  --deep: #05191C;
+  --teal-900: #07272b;
+  --teal-700: #0e4a50;
+  --teal-500: #12666e;
+
+  /* ---- glass ---- */
+  --pane: rgba(255, 255, 255, 0.07);
+  --pane-lit: rgba(255, 255, 255, 0.13);
+  --pane-sunk: rgba(4, 22, 25, 0.42);
+  --edge: rgba(255, 255, 255, 0.16);
+  --edge-soft: rgba(255, 255, 255, 0.09);
+  --edge-lit: rgba(255, 255, 255, 0.34);
+  --blur: blur(26px) saturate(1.5);
+  --blur-deep: blur(40px) saturate(1.4);
+
+  /* ---- inks ---- */
+  --ink: #f4f7f6;
+  --ink-2: #c3d2d1;
+  --ink-3: #93a7a6;
+
+  /* ---- accents, taken from the art ---- */
+  --gold: #d9b45b;
+  --gold-lit: #f0d191;
+  --green: #35d18b;
+  --green-deep: #0f7a4e;
+  --blue-lit: #7fc2ff;
+
+  /* ---- type ---- */
+  --display: 'Archivo', 'Mukta', system-ui, sans-serif;
+  --deva: 'Mukta', 'Archivo', system-ui, sans-serif;
+  --wd-display: 112;
+  --wd-label: 78;
+
+  /* display against micro, one step between for running body */
+  --t-display: 43px;
+  --t-display-sm: 31px;
+  --t-body: 14px;
+  --t-micro: 10.5px;
+
+  --board-pad: 22px;
+  --r-pane: 20px;
+  --r-pill: 999px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
