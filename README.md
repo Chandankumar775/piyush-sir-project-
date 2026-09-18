@@ -30,17 +30,26 @@ npm run dev
 Opens on <http://localhost:5173>. Arrow keys move between screens; the rail on
 the right jumps to any of the thirteen.
 
-## Connect the backend
+## Backend
+
+A Supabase project URL and anon key are baked into `frontend/src/lib/supabase.js`,
+so a deployed build needs no environment configuration. To point the app at a
+different project, copy `frontend/.env.example` to `frontend/.env.local` and fill
+it in — an env var overrides the baked-in default.
+
+To stand a project up from scratch:
 
 1. Create a Supabase project.
 2. Run `backend/supabase/migrations/0001_init.sql`, then `backend/supabase/seed.sql`
    in the SQL editor. Details in [backend/README.md](backend/README.md).
-3. Copy `frontend/.env.example` to `frontend/.env.local` and fill in the project
-   URL and anon key.
-4. Enable the Google provider under Authentication → Providers.
+3. Enable the Google provider under Authentication → Providers, and add your
+   deployed origin to the redirect allow-list.
 
-Restart `npm run dev`. Sign-in becomes a real Google redirect, onboarding writes
-to a profile row, and saved stories sync across devices.
+With the seed applied, the catalog and feed come from Postgres; without it the
+app falls back to the bundled catalog and placeholder editorial, so every screen
+works either way. With Google enabled, sign-in is a real redirect and onboarding
+writes to a profile row; without it, "Continue without signing in" walks through
+the same flow against local state.
 
 ## Build
 
