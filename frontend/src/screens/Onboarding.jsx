@@ -211,7 +211,14 @@ export function SignIn({ go }) {
             {err}
           </p>
         )}
-        {!app.isLive && (
+        {/* Sign-in gates the whole prototype, so there is always a way past it:
+            without a backend the Google plate walks straight in, and with one
+            this ghost does, for anyone being shown the app rather than using it. */}
+        {app.isLive ? (
+          <div className="mt-s">
+            <GhostPlate onClick={() => go(4)}>Continue without signing in</GhostPlate>
+          </div>
+        ) : (
           <p className="copy" style={{ fontSize: 11, textAlign: 'center', margin: '10px auto 0' }}>
             Demo mode — no backend configured, so this walks straight in.
           </p>
