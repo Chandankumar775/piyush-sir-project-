@@ -40,8 +40,15 @@ it in — an env var overrides the baked-in default.
 To stand a project up from scratch:
 
 1. Create a Supabase project.
-2. Run `backend/supabase/migrations/0001_init.sql`, then `backend/supabase/seed.sql`
-   in the SQL editor. Details in [backend/README.md](backend/README.md).
+2. Apply the schema and seed — one command, no `psql` or Supabase CLI needed.
+   The connection string is in Project Settings → Database → Connection string → URI:
+
+   ```bash
+   cd backend && npm install
+   DATABASE_URL='postgresql://...' npm run apply
+   ```
+
+   It prints the resulting row counts. Other routes in [backend/README.md](backend/README.md).
 3. Enable the Google provider under Authentication → Providers, and add your
    deployed origin to the redirect allow-list.
 
@@ -56,6 +63,20 @@ the same flow against local state.
 ```bash
 cd frontend && npm run build   # -> frontend/dist
 ```
+
+## Deploy to Vercel
+
+Import the repository and press Deploy — `vercel.json` carries the install
+command, the build command and the output directory, so nothing needs filling
+in. Leave **Root Directory** at the repository root; if you would rather set it
+to `frontend`, `frontend/vercel.json` covers that case with the same settings.
+
+No environment variables are required: the Supabase URL and anon key are baked
+into the bundle. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the
+Vercel project only to point a deployment at a different Supabase project.
+
+After the first deploy, add the deployment origin to the Supabase redirect
+allow-list (Authentication → URL Configuration) or Google sign-in will bounce.
 
 ## Status
 
