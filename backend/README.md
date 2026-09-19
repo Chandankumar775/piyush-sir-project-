@@ -10,11 +10,23 @@ supabase/seed.sql                   catalog rows and placeholder editorial
 
 ## Apply it
 
-**Dashboard.** Open the project → SQL Editor → paste `0001_init.sql`, run it,
-then paste `seed.sql` and run that. Both are idempotent (`if not exists`,
-`where not exists`), so re-running is safe.
+**One command.** Needs no `psql` and no Supabase CLI. Take the connection
+string from Project Settings → Database → Connection string → URI:
 
-**CLI.**
+```bash
+cd backend
+npm install
+DATABASE_URL='postgresql://...' npm run apply     # PowerShell: $env:DATABASE_URL='...'; npm run apply
+```
+
+It runs every migration in order, then the seed, and prints the resulting row
+counts. Both halves are idempotent (`if not exists`, `where not exists`), so
+re-running is safe and is how a new migration is picked up.
+
+**Dashboard.** Open the project → SQL Editor → paste `0001_init.sql`, run it,
+then paste `seed.sql` and run that.
+
+**Supabase CLI.**
 
 ```bash
 supabase link --project-ref <your-project-ref>
@@ -24,6 +36,10 @@ psql "$DATABASE_URL" -f supabase/seed.sql
 
 Then enable Google under Authentication → Providers, and add your deployed
 origin to the redirect allow-list.
+
+An empty catalog is not an error the app reports: with no rows, every screen
+falls back to the bundled catalog and placeholder editorial. Check the row
+counts the command prints to know the seed actually landed.
 
 ## Shape
 
