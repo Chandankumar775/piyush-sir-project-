@@ -13,5 +13,5 @@ dist/
 Thumbs.db
 *.log
 
-# local design tooling, not the product — the design record lives in PRODUCT.md
+# local design tooling
 .impeccable/

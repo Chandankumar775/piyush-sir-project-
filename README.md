@@ -16,8 +16,6 @@ The listener picks a language, a set of niches, a narrator, a length and a deliv
 
 On a desktop the app runs inside a phone frame, with a rail on the right that jumps to any of the thirteen screens. The arrow keys move between screens. On a phone it runs full screen.
 
-Product decisions, brand commitments and constraints live in [PRODUCT.md](PRODUCT.md).
-
 ## The flow
 
 <table>
