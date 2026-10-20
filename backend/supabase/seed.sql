@@ -51,8 +51,8 @@ on conflict (id) do update
 insert into stories (niche_id, headline, summary, outlet, filed_at, run_seconds, is_sample)
 select * from (values
   ('ai',
-   'Anthropic ships Claude 4.5 with a 2M-token memory and native tool use.',
-   'The new memory layer lets Claude hold entire codebases in mind while it works — a direct move on enterprise developer tooling.',
+   'An open-source AI model ships with a 2M-token memory and native tool use.',
+   'The new memory layer lets the model hold entire codebases in mind while it works — a direct move on enterprise developer tooling.',
    'Sample wire', now() - interval '3 hours', 124, true),
   ('markets',
    'RBI holds rates as inflation cools to a fourteen-month low.',
