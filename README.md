@@ -1,6 +1,6 @@
 <div align="center">
 
-# Nuzio AI
+<img src="docs/brand/wordmark.webp" alt="Nuzio AI" width="100%">
 
 **A short, personalised audio news brief, waiting for you every morning.**
 
